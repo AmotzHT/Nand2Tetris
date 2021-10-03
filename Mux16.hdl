@@ -1,0 +1,98 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux16.hdl
+
+/**
+ * 16-bit multiplexor: 
+ * for i = 0..15 out[i] = a[i] if sel == 0 
+ *                        b[i] if sel == 1
+ */
+
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+	Nand(a=sel,b=sel, out=T1sNs0); /* tier 1 */
+    Nand(a=a[0],b=T1sNs0,out=T2aNsNs0); /* tier 2 */
+    Nand(a=sel,b=b[0],out=T2sNb0); /* tier 2 */
+    Nand(a=T2aNsNs0,b=T2sNb0,out=out[0]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs1); /* tier 1 */
+    Nand(a=a[1],b=T1sNs1,out=T2aNsNs1); /* tier 2 */
+    Nand(a=sel,b=b[1],out=T2sNb1); /* tier 2 */
+    Nand(a=T2aNsNs1,b=T2sNb1,out=out[1]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs2); /* tier 1 */
+    Nand(a=a[2],b=T1sNs2,out=T2aNsNs2); /* tier 2 */
+    Nand(a=sel,b=b[2],out=T2sNb2); /* tier 2 */
+    Nand(a=T2aNsNs2,b=T2sNb2,out=out[2]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs3); /* tier 1 */
+    Nand(a=a[3],b=T1sNs3,out=T2aNsNs3); /* tier 2 */
+    Nand(a=sel,b=b[3],out=T2sNb3); /* tier 2 */
+    Nand(a=T2aNsNs3,b=T2sNb3,out=out[3]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs4); /* tier 1 */
+    Nand(a=a[4],b=T1sNs4,out=T2aNsNs4); /* tier 2 */
+    Nand(a=sel,b=b[4],out=T2sNb4); /* tier 2 */
+    Nand(a=T2aNsNs4,b=T2sNb4,out=out[4]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs5); /* tier 1 */
+    Nand(a=a[5],b=T1sNs5,out=T2aNsNs5); /* tier 2 */
+    Nand(a=sel,b=b[5],out=T2sNb5); /* tier 2 */
+    Nand(a=T2aNsNs5,b=T2sNb5,out=out[5]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs6); /* tier 1 */
+    Nand(a=a[6],b=T1sNs6,out=T2aNsNs6); /* tier 2 */
+    Nand(a=sel,b=b[6],out=T2sNb6); /* tier 2 */
+    Nand(a=T2aNsNs6,b=T2sNb6,out=out[6]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs7); /* tier 1 */
+    Nand(a=a[7],b=T1sNs7,out=T2aNsNs7); /* tier 2 */
+    Nand(a=sel,b=b[7],out=T2sNb7); /* tier 2 */
+    Nand(a=T2aNsNs7,b=T2sNb7,out=out[7]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs8); /* tier 1 */
+    Nand(a=a[8],b=T1sNs8,out=T2aNsNs8); /* tier 2 */
+    Nand(a=sel,b=b[8],out=T2sNb8); /* tier 2 */
+    Nand(a=T2aNsNs8,b=T2sNb8,out=out[8]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs9); /* tier 1 */
+    Nand(a=a[9],b=T1sNs9,out=T2aNsNs9); /* tier 2 */
+    Nand(a=sel,b=b[9],out=T2sNb9); /* tier 2 */
+    Nand(a=T2aNsNs9,b=T2sNb9,out=out[9]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs10); /* tier 1 */
+    Nand(a=a[10],b=T1sNs10,out=T2aNsNs10); /* tier 2 */
+    Nand(a=sel,b=b[10],out=T2sNb10); /* tier 2 */
+    Nand(a=T2aNsNs10,b=T2sNb10,out=out[10]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs11); /* tier 1 */
+    Nand(a=a[11],b=T1sNs11,out=T2aNsNs11); /* tier 2 */
+    Nand(a=sel,b=b[11],out=T2sNb11); /* tier 2 */
+    Nand(a=T2aNsNs11,b=T2sNb11,out=out[11]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs12); /* tier 1 */
+    Nand(a=a[12],b=T1sNs12,out=T2aNsNs12); /* tier 2 */
+    Nand(a=sel,b=b[12],out=T2sNb12); /* tier 2 */
+    Nand(a=T2aNsNs12,b=T2sNb12,out=out[12]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs13); /* tier 1 */
+    Nand(a=a[13],b=T1sNs13,out=T2aNsNs13); /* tier 2 */
+    Nand(a=sel,b=b[13],out=T2sNb13); /* tier 2 */
+    Nand(a=T2aNsNs13,b=T2sNb13,out=out[13]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs14); /* tier 1 */
+    Nand(a=a[14],b=T1sNs14,out=T2aNsNs14); /* tier 2 */
+    Nand(a=sel,b=b[14],out=T2sNb14); /* tier 2 */
+    Nand(a=T2aNsNs14,b=T2sNb14,out=out[14]); /* tier 3 */
+	
+	Nand(a=sel,b=sel, out=T1sNs15); /* tier 1 */
+    Nand(a=a[15],b=T1sNs15,out=T2aNsNs15); /* tier 2 */
+    Nand(a=sel,b=b[15],out=T2sNb15); /* tier 2 */
+    Nand(a=T2aNsNs15,b=T2sNb15,out=out[15]); /* tier 3 */
+	
+	
+}

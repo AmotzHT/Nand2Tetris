@@ -1,0 +1,56 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux4Way16.hdl
+
+/**
+ * 4-way 16-bit multiplexor:
+ * out = a if sel == 00
+ *       b if sel == 01
+ *       c if sel == 10
+ *       d if sel == 11
+ */
+
+CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=a,b=b,sel=sel[0],out=t1); 
+   	Mux16(a=c,b=d,sel=sel[0],out=t2);
+	Mux16(a=t1,b=t2,sel=sel[1],out=out);
+}
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   /* 4X1 mux [0]/16 - structoral approach */
+	/*Nand(a=sel[0],b=sel[0], out=sNs0); /* tier 1.1ab */
+    /*Nand(a=a[0],b=sNs0,out=T1mux0); /* tier 1.2ab */
+    /*Nand(a=sel[0],b=b[0],out=T1mux0); /* tier 1.2ab */
+    /*Nand(a=T2aNsNs0ab,b=T2sNb0ab,out=T1ab]); /* tier 1.3ab */
+	
+	/*Nand(a=sel[0],b=sel[0], out=T1sNs0cd); /* tier 1.2cd */
+    /*Nand(a=c[0],b=T1sNs0cd,out=T2aNsNs0cd); /* tier 1.2cd */
+    /*Nand(a=sel[0],b=d[0],out=T2sNb0cd); /* tier 1.2cd */
+    /*Nand(a=T2aNsNs0cd,b=T2sNb0cd,out=T1cd); /* tier 1.3cd */
+	
+	/*Nand(a=sel[1],b=sel[1], out=T1sNs0); /* tier 2.1 */
+    /*Nand(a=T1ab,b=T1sNs0,out=T2aNsNs0); /* tier 2.2 */
+    /*Nand(a=sel[1],b=T1cd,out=T2sNb0); /* tier 2.2 */
+    /*Nand(a=T2aNsNs0,b=T2sNb0,out=out[0]); /* tier 2.3 */

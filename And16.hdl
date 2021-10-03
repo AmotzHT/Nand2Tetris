@@ -1,0 +1,49 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And16.hdl
+
+/**
+ * 16-bit bitwise And:
+ * for i = 0..15: out[i] = (a[i] and b[i])
+ */
+
+CHIP And16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Nand (a=a[0], b=b[0], out= T1aNb0); /* Tier1 */
+	Nand (a=T1aNb0, b=T1aNb0, out= out[0]); /* Tier2 */
+	Nand (a=a[1], b=b[1], out= T1aNb1); /* Tier1 */
+	Nand (a=T1aNb1, b=T1aNb1, out= out[1]); /* Tier2 */
+	Nand (a=a[2], b=b[2], out= T1aNb2); /* Tier1 */
+	Nand (a=T1aNb2, b=T1aNb2, out= out[2]); /* Tier2 */
+	Nand (a=a[3], b=b[3], out= T1aNb3); /* Tier1 */
+	Nand (a=T1aNb3, b=T1aNb3, out= out[3]); /* Tier2 */	
+	Nand (a=a[4], b=b[4], out= T1aNb4); /* Tier1 */
+	Nand (a=T1aNb4, b=T1aNb4, out= out[4]); /* Tier2 */
+	Nand (a=a[5], b=b[5], out= T1aNb5); /* Tier1 */
+	Nand (a=T1aNb5, b=T1aNb5, out= out[5]); /* Tier2 */
+	Nand (a=a[6], b=b[6], out= T1aNb6); /* Tier1 */
+	Nand (a=T1aNb6, b=T1aNb6, out= out[6]); /* Tier2 */
+	Nand (a=a[7], b=b[7], out= T1aNb7); /* Tier1 */
+	Nand (a=T1aNb7, b=T1aNb7, out= out[7]); /* Tier2 */
+	Nand (a=a[8], b=b[8], out= T1aNb8); /* Tier1 */
+	Nand (a=T1aNb8, b=T1aNb8, out= out[8]); /* Tier2 */
+	Nand (a=a[9], b=b[9], out= T1aNb9); /* Tier1 */
+	Nand (a=T1aNb9, b=T1aNb9, out= out[9]); /* Tier2 */
+	Nand (a=a[10], b=b[10], out= T1aNb10); /* Tier1 */
+	Nand (a=T1aNb10, b=T1aNb10, out= out[10]); /* Tier2 */	
+	Nand (a=a[11], b=b[11], out= T1aNb11); /* Tier1 */
+	Nand (a=T1aNb11, b=T1aNb11, out= out[11]); /* Tier2 */
+	Nand (a=a[12], b=b[12], out= T1aNb12); /* Tier1 */
+	Nand (a=T1aNb12, b=T1aNb12, out= out[12]); /* Tier2 */
+	Nand (a=a[13], b=b[13], out= T1aNb13); /* Tier1 */
+	Nand (a=T1aNb13, b=T1aNb13, out= out[13]); /* Tier2 */
+	Nand (a=a[14], b=b[14], out= T1aNb14); /* Tier1 */
+	Nand (a=T1aNb14, b=T1aNb14, out= out[14]); /* Tier2 */
+	Nand (a=a[15], b=b[15], out= T1aNb15); /* Tier1 */
+	Nand (a=T1aNb15, b=T1aNb15, out= out[15]); /* Tier2 */
+       
+}
