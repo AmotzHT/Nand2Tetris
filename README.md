@@ -1,5 +1,6 @@
-# Nand2Tetris
-Nand2Tetris project files
+# Nand2Tetris project files
+course website: https://courses.campus.gov.il/courses/course-v1:HUJI+ACD_HUJI_nand2tetris+2020_1/course/
+
 
 One of the coolest learning experiences I had was this awesome course by the Hebrew University (HUJI). The course deals with building a modern computer from basic logic gates such as "NAND" to a general computer architecture (16 bit "Hack" computer) designed to execute any program such as the Tetris game. 
 
